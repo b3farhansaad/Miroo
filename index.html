@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Miroo ✿ | Portrait of a Dreamer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* إعدادات عامة لإزالة أي مساحات بيضاء أو بواقي أسفل الموقع */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* يمنع ظهور أي مساحة بيضاء أو سكرول بار */
+    font-family: 'Playfair Display', serif;
+    background-color: #0d0f12;
+    color: #fff;
+    position: relative;
+}
+
+/* الخلفيات والأنيميشن داخل حاوية مغلقة */
+.background-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.bg-image {
+    position: absolute;
+    inset: -5%;
+    width: 110%;
+    height: 110%;
+    background: url('anime_bg.jpeg') center/cover no-repeat;
+    filter: blur(8px) brightness(0.6);
+    animation: bgpan 20s ease-in-out infinite alternate;
+}
+
+.bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(15, 15, 25, 0.8), rgba(5, 5, 10, 0.9));
+    z-index: -1;
+}
+
+@keyframes bgpan {
+    from { transform: scale(1); }
+    to { transform: scale(1.08) translateY(-2%); }
+}
+
+/* الحاوية الرئيسية للمحتوى - تتوسط الشاشة */
+.main-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    padding: 20px;
+}
+
+/* البطاقة الرئيسية الزجاجية الفخمة */
+.card-glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+/* تظبيط مكان وتنسيق صورة البروفايل بشكل مثالي */
+.profile-section {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 25px auto;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d4af37, #f3e5ab);
+    padding: 4px;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #1a1a24;
+    display: block;
+}
+
+/* تأثير التلج (Frost) على حواف النص */
+.title-text {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    color: #ffffff;
+    display: inline-block;
+    margin-bottom: 5px;
+    /* تأثير التلج مركز على الحواف فقط */
+    text-shadow: 
+        -1px -1px 3px #aee4ff, 
+         1px -1px 3px #aee4ff, 
+        -1px  1px 3px #aee4ff, 
+         1px  1px 3px #aee4ff, 
+         0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+.title-flower {
+    font-size: 2rem;
+    color: #f5a3b7;
+    vertical-align: super;
+}
+
+/* النصوص والخطوط الكلاسيكية */
+.subtitle-classic {
+    font-size: 1.1rem;
+    color: #d1d1e0;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.sub-dot {
+    color: #d4af37;
+    margin: 0 5px;
+}
+
+.divider-classic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    opacity: 0.7;
+}
+
+.div-line {
+    height: 1px;
+    width: 40px;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+}
+
+.div-ornament {
+    margin: 0 15px;
+    color: #d4af37;
+    font-size: 1.2rem;
+}
+
+.about-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #e0e0e0;
+    margin-bottom: 25px;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* الإحصائيات */
+.stats-classic {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-box {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #fff;
+    margin: 5px 0;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+.stat-connector {
+    width: 1px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* الاقتباس */
+.quote-frame {
+    font-style: italic;
+    color: #b3b3cc;
+    font-size: 1rem;
+    position: relative;
+    padding: 0 15px;
+}
+
+.quote-mark {
+    color: #d4af37;
+    font-size: 1.5rem;
+    opacity: 0.5;
+}
+
+/* تساقط الورود */
+.falling-petal {
+    position: absolute;
+    top: -50px;
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0.7;
+}
+
+@keyframes petalFall {
+    0% { transform: translateY(-50px) rotate(0deg) translateX(0); }
+    100% { transform: translateY(110vh) rotate(360deg) translateX(50px); }
+}
+
+/* شاشة التحميل (Loader) */
+.loader-screen {
+    position: fixed;
+    inset: 0;
+    background: #0d0f12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    color: #d4af37;
+    font-size: 2rem;
+    font-family: 'Great Vibes', cursive;
+    transition: opacity 0.5s ease;
+}
+
+/* تجاوب مع شاشات الموبايل */
+@media (max-width: 480px) {
+    .card-glass {
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+    .profile-section {
+        width: 120px;
+        height: 120px;
+    }
+    .title-text {
+        font-size: 2.8rem;
+    }
+    .about-text {
+        font-size: 0.95rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="loader-screen" id="loader">✿ Miroo ✿</div>
+
+<div class="background-wrapper">
+    <div class="bg-image"></div>
+    <div class="bg-overlay"></div>
+</div>
+
+<div class="main-container">
+    <div class="card-glass">
+        
+        <div class="profile-section">
+            <img src="miroo.webp" alt="Miroo Profile" class="profile-img" onerror="this.src='https://via.placeholder.com/150'">
+        </div>
+        
+        <h1 class="main-title">
+            <span class="title-text">Miroo</span>
+            <span class="title-flower">✿</span>
+        </h1>
+        
+        <p class="subtitle-classic">
+            <span>١٩ ربيعاً</span>
+            <span class="sub-dot">•</span>
+            <span>أردنية الأصل</span>
+            <span class="sub-dot">•</span>
+            <span>نشأت في أرض الحرمين</span>
+        </p>
+        
+        <div class="divider-classic">
+            <div class="div-line"></div>
+            <div class="div-ornament">✦ ❀ ✦</div>
+            <div class="div-line"></div>
+        </div>
+        
+        <div class="about-classic">
+            <p class="about-text">
+                روحٌ حالمةٌ تُحبُّ الجمالَ، والورودَ، واللحظاتِ الهادئة،<br>
+                والإبداعَ، وجمعَ الذكريات. تُلهمُها الأناقةُ،<br>
+                والألوانُ الناعمةُ، والأجواءُ الساحرة.
+            </p>
+        </div>
+        
+        <div class="stats-classic">
+            <div class="stat-box">
+                <div class="stat-value">١٩</div>
+                <div class="stat-label">عاماً</div>
+            </div>
+            <div class="stat-connector"></div>
+            <div class="stat-box">
+                <div class="stat-value">🇯🇴</div>
+                <div class="stat-label">الأردن</div>
+            </div>
+            <div class="stat-connector"></div>
+            <div class="stat-box">
+                <div class="stat-value">🇸🇦</div>
+                <div class="stat-label">أرض النور</div>
+            </div>
+        </div>
+        
+        <div class="quote-frame">
+            <span class="quote-mark">“</span>
+            اِزْهَرِي بِهُدُوءٍ، وَلِمِي بِبُرُوقٍ،<br>وَلَا تَتَوَقَّفِي عَنِ الحُلْم.
+            <span class="quote-mark">”</span>
+        </div>
+
+    </div>
+</div>
+
+<script>
+window.addEventListener('load', () => {
+    // إخفاء اللودر بشكل ناعم
+    const loader = document.getElementById('loader');
+    if(loader) {
+        loader.style.opacity = '0';
+        setTimeout(() => loader.remove(), 500);
+    }
+
+    // توليد الورود المتساقطة
+    const petalSVG = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'><path fill='%23f5a3b7' d='M30 5 C42 10 55 20 48 35 C42 48 25 55 15 45 C5 35 10 15 30 5Z'/></svg>`;
+    const container = document.querySelector('.main-container');
+
+    for(let i = 0; i < 20; i++) {
+        let petal = document.createElement('img');
+        petal.src = petalSVG;
+        petal.className = 'falling-petal';
+        petal.style.left = Math.random() * 100 + 'vw';
+        petal.style.width = (12 + Math.random() * 18) + 'px';
+        petal.style.animation = 'petalFall ' + (8 + Math.random() * 7) + 's linear infinite';
+        petal.style.animationDelay = (Math.random() * 5) + 's';
+        container.appendChild(petal);
+    }
+});
+</script>
+
+</body>
+</html>
